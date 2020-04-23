@@ -18,6 +18,7 @@ public class EnsayoGithub {
         // TODO code application logic here
         GUI userInterface = new GUI();
         userInterface.setVisible(true);
+        System.out.println("Hola.");
     }
     
 }
