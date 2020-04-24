@@ -44,6 +44,18 @@ public class GUI extends javax.swing.JFrame {
         generar = new javax.swing.JButton();
         jLabel2 = new javax.swing.JLabel();
         sumaPosiciones = new javax.swing.JLabel();
+        jLabel3 = new javax.swing.JLabel();
+        jLabel4 = new javax.swing.JLabel();
+        jLabel5 = new javax.swing.JLabel();
+        jLabel6 = new javax.swing.JLabel();
+        jLabel7 = new javax.swing.JLabel();
+        jLabel8 = new javax.swing.JLabel();
+        mediaLabel = new javax.swing.JLabel();
+        modaLabel = new javax.swing.JLabel();
+        desviacionMediaLabel = new javax.swing.JLabel();
+        desviacionEstandarLabel = new javax.swing.JLabel();
+        medianaLabel = new javax.swing.JLabel();
+        varianzaLabel = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -75,27 +87,64 @@ public class GUI extends javax.swing.JFrame {
 
         jLabel2.setText("La suma de todas las posiciones es:");
 
+        sumaPosiciones.setText("0");
+
+        jLabel3.setText("La media de los números es:");
+
+        jLabel4.setText("La moda de los números es:");
+
+        jLabel5.setText("La mediana de los números es:");
+
+        jLabel6.setText("La desviación media de los números es:");
+
+        jLabel7.setText("La desviación estándar de los números es:");
+
+        jLabel8.setText("La varianza de los números es:");
+
+        mediaLabel.setText("0");
+
+        modaLabel.setText("0");
+
+        desviacionMediaLabel.setText("0");
+
+        desviacionEstandarLabel.setText("0");
+
+        medianaLabel.setText("0");
+
+        varianzaLabel.setText("0");
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(generar)
+                    .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 295, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGroup(layout.createSequentialGroup()
+                        .addComponent(jLabel1)
+                        .addGap(82, 82, 82)
+                        .addComponent(tamañoVector, javax.swing.GroupLayout.PREFERRED_SIZE, 83, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(22, 22, 22)
-                        .addComponent(jLabel2)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(sumaPosiciones, javax.swing.GroupLayout.PREFERRED_SIZE, 84, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(layout.createSequentialGroup()
-                        .addContainerGap()
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addComponent(generar)
-                            .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 295, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addGroup(layout.createSequentialGroup()
-                                .addComponent(jLabel1)
-                                .addGap(82, 82, 82)
-                                .addComponent(tamañoVector, javax.swing.GroupLayout.PREFERRED_SIZE, 83, javax.swing.GroupLayout.PREFERRED_SIZE)))))
-                .addContainerGap(41, Short.MAX_VALUE))
+                    .addComponent(jLabel3)
+                    .addComponent(jLabel4)
+                    .addComponent(jLabel8)
+                    .addComponent(jLabel6)
+                    .addComponent(jLabel5)
+                    .addComponent(jLabel7)
+                    .addComponent(jLabel2))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 27, Short.MAX_VALUE)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(mediaLabel, javax.swing.GroupLayout.DEFAULT_SIZE, 73, Short.MAX_VALUE)
+                    .addComponent(modaLabel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(medianaLabel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(desviacionMediaLabel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(desviacionEstandarLabel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(varianzaLabel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(sumaPosiciones, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addGap(15, 15, 15))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -104,15 +153,42 @@ public class GUI extends javax.swing.JFrame {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel1)
                     .addComponent(tamañoVector, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 228, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(generar)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel2)
-                    .addComponent(sumaPosiciones))
-                .addContainerGap(46, Short.MAX_VALUE))
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(layout.createSequentialGroup()
+                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 228, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(generar)
+                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(jLabel2)
+                            .addComponent(sumaPosiciones))
+                        .addGap(27, 27, 27)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addComponent(mediaLabel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(jLabel3))
+                        .addGap(27, 27, 27)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(jLabel4)
+                            .addComponent(modaLabel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                        .addGap(27, 27, 27)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(jLabel5)
+                            .addComponent(medianaLabel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                        .addGap(27, 27, 27)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(jLabel6)
+                            .addComponent(desviacionMediaLabel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                        .addGap(27, 27, 27)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(jLabel7)
+                            .addComponent(desviacionEstandarLabel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                        .addGap(27, 27, 27)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(jLabel8)
+                            .addComponent(varianzaLabel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                        .addContainerGap(38, Short.MAX_VALUE))))
         );
 
         pack();
@@ -134,6 +210,10 @@ public class GUI extends javax.swing.JFrame {
             }
         }
         sumaPosiciones.setText(String.valueOf(sumaPosiciones()));
+        mediaLabel.setText(String.valueOf(media()));
+        moda();
+        mediana();
+        desviacionEstandar();
     }//GEN-LAST:event_generarMouseClicked
     private int sumaPosiciones(){
         int suma=0;
@@ -149,7 +229,55 @@ public class GUI extends javax.swing.JFrame {
             evt.consume();
         }
     }//GEN-LAST:event_tamañoVectorKeyTyped
-
+    private double media(){
+        double media=0;
+        int totalNumeros=arregloNumeros.size();
+        int sumaTotal=sumaPosiciones();
+        media=sumaTotal/totalNumeros;
+        return media;
+    }
+    public int cuantasVeces(int i){
+        int contador=0;
+        for (int j=0; j<arregloNumeros.size();j++){
+            if (i==arregloNumeros.get(j)){
+                contador++;
+            }
+        }
+        return contador;
+    }
+    private void moda(){
+        int moda=0, numeroVeces=0;
+        for(int i=0; i<arregloNumeros.size();i++){
+           if(cuantasVeces(arregloNumeros.get(i))>numeroVeces){
+               moda=arregloNumeros.get(i);
+               numeroVeces=cuantasVeces(arregloNumeros.get(i));
+           } 
+        }
+        modaLabel.setText(String.valueOf(moda));
+    }
+    private void mediana(){
+        double mediana=0;
+        int tamaño=arregloNumeros.size();
+        arregloNumeros.sort(null);
+        if(esPar(arregloNumeros.size())){
+           mediana=(arregloNumeros.get((tamaño/2)-1)+arregloNumeros.get((tamaño/2)))/2;
+        }else{
+            mediana=arregloNumeros.get(((tamaño+1)/2)-1);
+        }
+        medianaLabel.setText(String.valueOf(mediana));
+    }
+    private boolean esPar(int i){
+        return i%2==0;
+    }
+    private void desviacionEstandar(){
+        float desviacionEstandar=0;
+        float sumatoria=0;
+        for(int i=0;i<arregloNumeros.size();i++){
+            sumatoria+=Math.pow(arregloNumeros.get(i)-media(),2);
+        }
+        desviacionEstandar = (float) Math.sqrt(sumatoria/arregloNumeros.size());
+        desviacionEstandarLabel.setText(String.valueOf(desviacionEstandar));
+    }
     /**
      * @param args the command line arguments
      */
@@ -186,12 +314,24 @@ public class GUI extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JLabel desviacionEstandarLabel;
+    private javax.swing.JLabel desviacionMediaLabel;
     private javax.swing.JButton generar;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
+    private javax.swing.JLabel jLabel3;
+    private javax.swing.JLabel jLabel4;
+    private javax.swing.JLabel jLabel5;
+    private javax.swing.JLabel jLabel6;
+    private javax.swing.JLabel jLabel7;
+    private javax.swing.JLabel jLabel8;
     private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JLabel mediaLabel;
+    private javax.swing.JLabel medianaLabel;
+    private javax.swing.JLabel modaLabel;
     private javax.swing.JLabel sumaPosiciones;
     private javax.swing.JTable table;
     private javax.swing.JTextField tamañoVector;
+    private javax.swing.JLabel varianzaLabel;
     // End of variables declaration//GEN-END:variables
 }
