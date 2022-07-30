@@ -3,12 +3,10 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package ensayogithub;
+package view;
 
-import java.awt.List;
+import controller.Controller;
 import java.awt.event.KeyEvent;
-import java.util.ArrayList;
-import java.util.Random;
 import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
 
@@ -17,8 +15,6 @@ import javax.swing.table.DefaultTableModel;
  * @author JOSE-PC
  */
 public class GUI extends javax.swing.JFrame {
-
-    ArrayList<Integer> arregloNumeros = new ArrayList<>();
     
     /**
      * Creates new form GUI
@@ -82,6 +78,11 @@ public class GUI extends javax.swing.JFrame {
         generar.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 generarMouseClicked(evt);
+            }
+        });
+        generar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                generarActionPerformed(evt);
             }
         });
 
@@ -199,29 +200,31 @@ public class GUI extends javax.swing.JFrame {
         if (tamañoVector.getText().equals("")){
             JOptionPane.showMessageDialog(null, "SEÑOR USUARIO POR FAVOR INGRESE UN NUMERO ANTES DE INICIAR");
         }else{
-            Random aleatorio = new Random();
             int numeroUsuario = Integer.parseInt(tamañoVector.getText());
-            for (int i=0; i<numeroUsuario; i++){
-                int numeroAleatorio = aleatorio.nextInt(50);
-                int posicion= i+1;
-                DefaultTableModel model = (DefaultTableModel) table.getModel();
-                model.addRow(new Object[]{posicion, numeroAleatorio});
-                arregloNumeros.add(numeroAleatorio);
-            }
+            DefaultTableModel tableModel = (DefaultTableModel) table.getModel();
+            table.setModel(Controller.getTableModel(tableModel, numeroUsuario));
         }
-        sumaPosiciones.setText(String.valueOf(sumaPosiciones()));
-        mediaLabel.setText(String.valueOf(media()));
-        moda();
-        mediana();
-        desviacionEstandar();
+        sumaPosiciones.setText(String.valueOf(Controller.sumaElementos));
+        double auxDouble = Controller.estadisticaMedia();
+        mediaLabel.setText(String.valueOf(auxDouble));
+        int auxInt = Controller.estadisticaModa();
+        modaLabel.setText(String.valueOf(auxInt));
+        auxDouble = Controller.estadisticaMediana();
+        medianaLabel.setText(String.valueOf(auxDouble));
+        auxDouble = Controller.estadisticaDesEstandar();
+        String auxString = String.valueOf(auxDouble);
+        auxString = auxString.length() > 4 ? auxString.substring(0, 4) : auxString;
+        desviacionEstandarLabel.setText(auxString);
+        auxDouble = Controller.estadisticaVarianza();
+        auxString = String.valueOf(auxDouble);
+        auxString = auxString.length() > 4 ? auxString.substring(0, 4) : auxString;
+        varianzaLabel.setText(auxString);
+        auxDouble = Controller.estadisticaDesMedia();
+        auxString = String.valueOf(auxDouble);
+        auxString = auxString.length() > 4 ? auxString.substring(0, 4) : auxString;
+        desviacionMediaLabel.setText(auxString);
     }//GEN-LAST:event_generarMouseClicked
-    private int sumaPosiciones(){
-        int suma=0;
-        for (int i=0; i<arregloNumeros.size(); i++){
-            suma+=arregloNumeros.get(i);
-        }
-        return (suma);
-    }
+    
     private void tamañoVectorKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_tamañoVectorKeyTyped
         // TODO add your handling code here:
         char c = evt.getKeyChar();
@@ -229,55 +232,11 @@ public class GUI extends javax.swing.JFrame {
             evt.consume();
         }
     }//GEN-LAST:event_tamañoVectorKeyTyped
-    private double media(){
-        double media=0;
-        int totalNumeros=arregloNumeros.size();
-        int sumaTotal=sumaPosiciones();
-        media=sumaTotal/totalNumeros;
-        return media;
-    }
-    public int cuantasVeces(int i){
-        int contador=0;
-        for (int j=0; j<arregloNumeros.size();j++){
-            if (i==arregloNumeros.get(j)){
-                contador++;
-            }
-        }
-        return contador;
-    }
-    private void moda(){
-        int moda=0, numeroVeces=0;
-        for(int i=0; i<arregloNumeros.size();i++){
-           if(cuantasVeces(arregloNumeros.get(i))>numeroVeces){
-               moda=arregloNumeros.get(i);
-               numeroVeces=cuantasVeces(arregloNumeros.get(i));
-           } 
-        }
-        modaLabel.setText(String.valueOf(moda));
-    }
-    private void mediana(){
-        double mediana=0;
-        int tamaño=arregloNumeros.size();
-        arregloNumeros.sort(null);
-        if(esPar(arregloNumeros.size())){
-           mediana=(arregloNumeros.get((tamaño/2)-1)+arregloNumeros.get((tamaño/2)))/2;
-        }else{
-            mediana=arregloNumeros.get(((tamaño+1)/2)-1);
-        }
-        medianaLabel.setText(String.valueOf(mediana));
-    }
-    private boolean esPar(int i){
-        return i%2==0;
-    }
-    private void desviacionEstandar(){
-        float desviacionEstandar=0;
-        float sumatoria=0;
-        for(int i=0;i<arregloNumeros.size();i++){
-            sumatoria+=Math.pow(arregloNumeros.get(i)-media(),2);
-        }
-        desviacionEstandar = (float) Math.sqrt(sumatoria/arregloNumeros.size());
-        desviacionEstandarLabel.setText(String.valueOf(desviacionEstandar));
-    }
+
+    private void generarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_generarActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_generarActionPerformed
+     
     /**
      * @param args the command line arguments
      */
